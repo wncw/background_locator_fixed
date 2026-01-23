@@ -186,7 +186,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   initialDataDictionary:(NSDictionary*)initialDataDictionary
         disposeCallback:(int64_t)disposeCallback
                settings: (NSDictionary*)settings {
-    [self->_locationManager requestAlwaysAuthorization];
+    // Changed from requestAlwaysAuthorization to requestWhenInUseAuthorization
+    // When In Use is sufficient with Foreground Service
+    [self->_locationManager requestWhenInUseAuthorization];
         
     long accuracyKey = [[settings objectForKey:kSettingsAccuracy] longValue];
     CLLocationAccuracy accuracy = [Util getAccuracy:accuracyKey];
