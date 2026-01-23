@@ -155,6 +155,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _locationManager = [[CLLocationManager alloc] init];
     [_locationManager setDelegate:self];
     _locationManager.pausesLocationUpdatesAutomatically = NO;
+    _locationManager.activityType = CLActivityTypeFitness;
 }
 
 #pragma mark MethodCallHelperDelegate
